@@ -22,7 +22,31 @@ public class sorter{
             arr[i] = temp;
         }
     }
-    public static void sort(int[] arr){
-        selectionSort(arr);
+    public static void insertionSort(int array[]) {
+        int size = array.length;
+
+        for (int step = 1; step < size; step++) {
+            int key = array[step];
+            int j = step - 1;
+
+            
+            while (j >= 0 && key < array[j]) {
+                array[j + 1] = array[j];
+                --j;
+            }
+
+            
+            array[j + 1] = key;
+        }
     }
+
+    public static void sort(int array[]){
+        double rand = Math.random();
+        if (rand >0.5)
+            insertionSort(array);
+        else
+            selectionSort(array);
+    }
+
+    
 }
